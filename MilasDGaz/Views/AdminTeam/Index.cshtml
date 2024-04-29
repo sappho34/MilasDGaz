@@ -1,0 +1,45 @@
+﻿@using MilasDGaz.Models
+@model List<Team>
+
+    @{
+        ViewBag.Title = "Takım";
+        Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+        int count = 0;
+    }
+
+    <br />
+    <br />
+    <h3>Takım Arkadaşlarımız Ekle</h3>
+    <br />
+    @*<h6 style="color:red">Dikkat iletişim bilgileri gibi benzersiz olan şeyler bir kere eklenir daha sonra SADECE güncellenir</h6>*@
+
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Resim</th>
+            <th>İsim</th>
+            @*<th>Facebook</th>
+            <th>Instagram</th>
+            <th>Whatsapp</th>*@
+            <th>Sil</th>
+            <th>Güncelle</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.ImageUrl</td>
+                <td>@item.NameSurname</td>
+                @*<td>@item.Icon1</td>
+                <td>@item.Icon2</td>
+                <td>@item.Icon3</td>*@
+                <td><a href="/AdminTeam/DeleteTeam/@item.Id" class="btn btn-danger">Sil</a></td>
+                <th><a href="/AdminTeam/UpdateTeam/@item.Id" class="btn btn-success">Güncelle</a></th>
+            </tr>
+        }
+
+    </table>
+    <a href="/AdminTeam/AddTeam" class="btn btn-primary">Personel Ekle</a>
+

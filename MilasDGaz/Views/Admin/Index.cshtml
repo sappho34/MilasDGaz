@@ -1,0 +1,48 @@
+﻿@model List<MilasDGaz.Models.About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+    int count = 0;
+}
+
+<br />
+<br />
+<h3>Hakkımızda Sayfası</h3>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Özellik1</th>
+        <th>Özellik2</th>
+        <th>Özellik3</th>
+        <th>Resim1</th>
+        <th>Resim2</th>
+        
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td>@item.Item1</td>
+            <td>@item.Item2</td>
+            <td>@item.Item3</td>
+            <td>@item.Image1</td>
+            <td>@item.Image2</td>
+          
+            <td><a href="/Admin/DeleteAbout/@item.Id" class="btn btn-warning">Sil</a></td>
+            <th><a href="/Admin/UpdateAbout/@item.Id" class="btn btn-success">Güncelle</a></th>
+        </tr>
+    }
+
+</table>
+<a href="/Admin/AddAbout" class="btn btn-primary">Hakkımızda Ekle</a>
+<a href="/AdminBanner/Index" class="btn btn-dark">Banner Resimleri</a>

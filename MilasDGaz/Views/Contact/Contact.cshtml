@@ -1,0 +1,19 @@
+﻿
+@using MilasDGaz.Models
+@model List<Us>
+
+<div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+    <h6 class="text-secondary text-uppercase">Haritayı tıklayın!</h6>
+    <h1 class="mb-4">Sorularınız için mesaj bırakın</h1>
+    <p class="mb-4">Firmamızı ziyaret edebilirsiniz. <a href="https://htmlcodex.com/contact-form"></a>.</p>
+    @foreach (var item in Model)
+    {
+        <iframe class="position-relative w-100"
+                src="@item.Adress"
+                frameborder="0" style="height: 300px; border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+    }
+</div>
+
+
+

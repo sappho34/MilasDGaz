@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Milas Mühendislik";
+    Layout = "~/Views/Shared/_UILayoutPage1.cshtml";
+}
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 py-5">
+    <div class="container">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Takım Arkadaşlarımız</h1>
+        <nav aria-label="breadcrumb animated slideInDown">
+            <ol class="breadcrumb text-uppercase">
+                <li class="breadcrumb-item"><a class="text-white" href="#">Ana Sayfa</a></li>
+                
+                <li class="breadcrumb-item text-white active" aria-current="page">Takımımız</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Team Start -->
+@Html.Action("Team","Default")
+
+<!-- Team End -->

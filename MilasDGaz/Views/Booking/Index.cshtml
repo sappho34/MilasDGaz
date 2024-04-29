@@ -1,0 +1,26 @@
+﻿
+@{
+    Html.Raw(ViewBag.Title);
+    Layout = "~/Views/Shared/_UILayoutPage1.cshtml";
+}
+
+@Html.Action("Navb", "Default")
+@Html.Action("NavBar", "Default")
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 py-5">
+    <div class="container">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Randevu Oluştur</h1>
+        <nav aria-label="breadcrumb animated slideInDown">
+            @*<ol class="breadcrumb text-uppercase">
+                <li class="breadcrumb-item"><a class="text-white" href="#">Anasayfa</a></li>
+
+                <li class="breadcrumb-item text-white active" aria-current="page">Randevu Oluştur</li>
+            </ol>*@
+        </nav>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Booking Start -->
+@Html.Action("SendMessage", "Booking")
+<!-- Booking End -->
+@Html.Action("Footer", "Default")

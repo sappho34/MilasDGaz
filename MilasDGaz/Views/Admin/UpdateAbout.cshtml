@@ -1,0 +1,34 @@
+﻿@model MilasDGaz.Models.About
+@{
+    ViewBag.Title = "UpdateAbout";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <label>Başlık</label>
+    <input type="text" name="Title" value="@Model.Title" class="form-control" />
+    <br />
+    <label>Açıklama</label>
+    <input name="Description" value="@Model.Description" class="form-control" />
+    <br />
+    <label>Özellik1</label>
+    <input type="text" name="Item1" value="@Model.Item1" class="form-control" />
+    <br />
+    <label>Özellik2</label>
+    <input type="text" name="Item2" value="@Model.Item2" class="form-control" />
+    <br />
+    <label>Özellik3</label>
+    <input type="text" name="Item3" value="@Model.Item3" class="form-control" />
+    <br />
+    <label>Fotograf1</label>
+    <input type="file" name="Image1" value="@Model.Image1" class="form-control" />
+    <br />
+    <label>Fotograf2</label>
+    <input type="file" name="Image2" value="@Model.Image2" class="form-control" />
+    <br />
+   
+ 
+    <button class="btn btn-outline-primary">Güncelle</button>
+</form>
+

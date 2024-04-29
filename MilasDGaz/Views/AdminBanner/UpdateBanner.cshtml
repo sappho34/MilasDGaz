@@ -1,0 +1,25 @@
+﻿@model MilasDGaz.Models.Banner
+@{
+    ViewBag.Title = "UpdateBanner";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+
+<br />
+<h3>Randevu Oluştur</h3>
+<br />
+<form method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+    <label>Resim</label>
+    <input type="file" name="ImageUrl" class="form-control" />
+    <br />
+
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+
+    <label>Yorum</label>
+    @Html.TextAreaFor(x => x.Description, 5, 1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>

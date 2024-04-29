@@ -1,0 +1,34 @@
+﻿@model MilasDGaz.Models.Us
+@{
+    ViewBag.Title = "UpdateUs";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<br />
+<h3>İletişim Bilgileri Güncelle</h3>
+<br />
+<form method="post">
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+
+    <label>Adres</label>
+    @Html.TextAreaFor(x => x.Adress, 5, 1, new { @class = "form-control" })
+    <br />
+    <label>T.Numara</label>
+    @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+    <br />
+    <label>T.Numara2</label>
+    @Html.TextBoxFor(x => x.Phone1, new { @class = "form-control" })
+    <br />
+    <label>T.Numara3</label>
+    @Html.TextBoxFor(x => x.Phone2, new { @class = "form-control" })
+    <br />
+    <label>Mail</label>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <br />
+    <label>Fax</label>
+    @Html.TextBoxFor(x => x.Fax, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-success">Güncelle</button>
+</form>
+

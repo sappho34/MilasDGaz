@@ -1,0 +1,27 @@
+﻿@model MilasDGaz.Models.Testimonial
+@{
+    ViewBag.Title = "UpdateRef";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<br />
+<h3>Müşteri Yorumu Düzenle</h3>
+<br />
+<form method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+
+    <label>Yorum</label>
+    @Html.TextAreaFor(x => x.Comment, 5, 1, new { @class = "form-control" })
+    <br />
+    <label>Resim Ekle</label>
+    <input type="file" name="İmageUrl" class="form-control" />
+    <br />
+    <label>İsim</label>
+    @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+    <br />
+    <label>Yer</label>
+    @Html.TextBoxFor(x => x.Location, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>
+

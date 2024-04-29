@@ -1,0 +1,23 @@
+﻿@model MilasDGaz.Models.Service
+@{
+    ViewBag.Title = "Service Foto";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<br />
+<h3>Galeriye Fotoğraf Ekle</h3>
+<br />
+<form method="post" enctype="multipart/form-data">
+
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+   
+    <label>Resim</label>
+    <input type="file" name="ImageUrl" class="form-control" />
+    <br />
+  
+    <button class="btn btn-success">Ekle</button>
+</form>
+
+

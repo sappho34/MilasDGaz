@@ -1,0 +1,41 @@
+﻿@model List<MilasDGaz.Models.Us>
+<div class="container-fluid nav-bar bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white p-3 py-lg-0 px-lg-4">
+        <a href="" class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
+            <h1 class="text-primary m-0">Milas Gaz</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav me-auto">
+                <a href="@Url.Action("Index","Default")" class="nav-item nav-link active">Ana Sayfa</a>
+                <a href="@Url.Action("Index","About")" class="nav-item nav-link">Hakkımızda</a>
+                <a href="@Url.Action("Index","Service")" class="nav-item nav-link">SERVİSLER</a>
+                <div class="nav-item dropdown">
+                    <a href="@Url.Action("Index","Testimonial")" class="nav-item nav-link" >MÜŞTERİLERİMİZ DİYORKİ</a>
+                    @*<div class="dropdown-menu fade-up m-0">
+                        <a href="booking.html" class="dropdown-item">Randevu</a>
+                        <a href="team.html" class="dropdown-item">Takım</a>
+                        <a href="testimonial.html" class="dropdown-item">Deneyimler</a>
+                        <a href="404.html" class="dropdown-item">404 Hata Sayfası</a>
+                    </div>*@
+                </div>
+                <a href="@Url.Action("Index","Contact")" class="nav-item nav-link">İLETİŞİM</a>
+            </div>
+            <div class="mt-4 mt-lg-0 me-lg-n4 py-3 px-4 bg-primary d-flex align-items-center">
+                <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 45px; height: 45px;">
+                    <i class="fa fa-phone-alt text-primary"></i>
+                </div>
+                @foreach (var item in Model)
+                {
+                    <div class="ms-3">
+                        <p class="mb-1 text-white">İletişim İçin</p>
+                        <h5 class="m-0 text-secondary">@item.Phone1</h5>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </nav>
+</div>

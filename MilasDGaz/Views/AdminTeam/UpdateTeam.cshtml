@@ -1,0 +1,32 @@
+﻿@model MilasDGaz.Models.Team
+@{
+    ViewBag.Title = "UpdateTeam";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+
+
+<br />
+<h3>Personel Düzenle</h3>
+<br />
+<form method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+
+    <label>İsim</label>
+    @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+    <br />
+    <label>Resim Ekle</label>
+    <input type="file" name="İmageUrl" class="form-control" />
+    <br />
+    @*<label>Facebook</label>
+    @Html.TextBoxFor(x => x.Icon1, new { @class = "form-control" })
+    <br />
+    <label>Instagram</label>
+    @Html.TextBoxFor(x => x.Icon1, new { @class = "form-control" })
+    <br />
+    <label>Whatsapp</label>
+    @Html.TextBoxFor(x => x.Icon1, new { @class = "form-control" })
+    <br />*@
+   
+    <button class="btn btn-success">Güncelle</button>
+</form>

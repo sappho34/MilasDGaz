@@ -1,0 +1,43 @@
+﻿@using MilasDGaz.Models
+@model List<Contact>
+@{
+    ViewBag.Title = "Milas Gaz Mühendislik";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+    int count = 0;
+}
+
+<br />
+<br />
+<h3>Gelen Mesajlar</h3>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>AdSoyad</th>
+        <th>Email</th>
+        <th>Telefon</th>
+        <th>Konu</th>
+        <th>Mesaj<th>
+        <th>Yanıt Verildi Mi?</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.NameSurname</td>
+            <td>@item.Email</td>
+            <td>@item.Phone</td>
+            <td>@item.Subject</td>
+            <td>@item.Message</td>
+            <th>@item.Status</th>
+            <td><a href="/AdminContact/ChangeContact/@item.Id" class="btn btn-success">Evet</a></td>
+            <td><a href="/AdminContact/DeleteContact/@item.Id" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+
+</table>
+
+

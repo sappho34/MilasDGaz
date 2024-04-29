@@ -1,0 +1,27 @@
+﻿@model MilasDGaz.Models.Banner
+@{
+    ViewBag.Title = "AddBanner";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+
+<br />
+<h3>Randevu Oluştur</h3>
+<br />
+<form method="post" enctype="multipart/form-data">
+
+    <label>Resim</label>
+    <input type="file" name="ImageUrl" class="form-control" />
+    <br />
+
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+
+    <label>Yorum</label>
+    @Html.TextAreaFor(x => x.Description, 5, 1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Ekle</button>
+</form>
+
+

@@ -1,0 +1,38 @@
+﻿@using MilasDGaz.Models
+@model List<Banner>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+    int count = 0;
+}
+
+<br />
+<br />
+<h3>Banner Resimleri için</h3>
+<br />
+<p style="color:red">Resimlerin boyutlarına dikkat ediniz</p>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Resim</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.ImageUrl</td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+
+            <td><a href="/AdminBanner/UpdateBanner/@item.Id" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/AdminBanner/DeleteBanner/@item.Id" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/AdminBanner/AddBanner" class="btn btn-primary">Ekle</a>

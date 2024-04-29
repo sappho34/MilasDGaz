@@ -1,0 +1,31 @@
+﻿@model MilasDGaz.Models.Experience
+@{
+    ViewBag.Title = "UpdateExp";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<br />
+<h3>Deneyimleri Düzenle</h3>
+<br />
+<form method="post">
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+    <label>İsim</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label>Yorum</label>
+    @Html.TextAreaFor(x => x.Description, 5, 1, new { @class = "form-control" })
+    <br />
+    <label>Yer</label>
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+    <br />
+    <label>Madde1</label>
+    @Html.TextBoxFor(x => x.Item1, new { @class = "form-control" })
+    <br />
+    <label>Madde2</label>
+    @Html.TextBoxFor(x => x.Item2, new { @class = "form-control" })
+    <br />
+    <label>Madde3</label>
+    @Html.TextBoxFor(x => x.Item3, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>

@@ -1,0 +1,46 @@
+﻿@using MilasDGaz.Models
+@model List<Experience>
+
+@{
+    ViewBag.Title = "Deneyimler";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+    int count = 0;
+}
+
+
+<br />
+<br />
+<h3>Takım Arkadaşlarımız Ekle</h3>
+<br />
+@*<h6 style="color:red">Dikkat iletişim bilgileri gibi benzersiz olan şeyler bir kere eklenir daha sonra SADECE güncellenir</h6>*@
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Icon</th>
+        <th>Madde1</th>
+        <th>Madde2</th>
+        <th>Madde3</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td>@item.Item1</td>
+            <td>@item.Item2</td>
+            <td>@item.Item3</td>
+            <td><a href="/AdminExperience/DeleteExp/@item.Id" class="btn btn-danger">Sil</a></td>
+            <th><a href="/AdminExperience/UpdateExp/@item.Id" class="btn btn-success">Güncelle</a></th>
+        </tr>
+    }
+
+</table>
+<a href="/AdminExperience/AddExp" class="btn btn-primary">Personel Ekle</a>

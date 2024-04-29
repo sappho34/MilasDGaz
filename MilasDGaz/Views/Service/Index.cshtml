@@ -1,0 +1,21 @@
+﻿
+@{
+    Html.Raw(ViewBag.Title);
+    Layout = "~/Views/Shared/_UILayoutPage1.cshtml";
+}
+
+@Html.Action("Navb","Default")
+@Html.Action("NavBar","Default")
+
+@Html.Action("HeaderStart", "Service")
+<!-- Service Start -->
+@Html.Action("Service", "Service")
+<!-- Service End -->
+<!-- Booking Start -->
+@Html.Action("Booking", "Service")
+<!-- Booking End -->
+<!-- Testimonial Start -->
+@Html.Action("Testimonial", "Service")
+
+<!-- Testimonial End -->
+@Html.Action("Footer","Default")

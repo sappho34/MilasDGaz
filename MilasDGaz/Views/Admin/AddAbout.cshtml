@@ -1,0 +1,34 @@
+﻿@model MilasDGaz.Models.About 
+@{
+    ViewBag.Title = "AddAbout";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+<br />
+<h3>Hakkımızda Ekle</h3>
+<br />
+<form method="post" enctype="multipart/form-data">
+    <label>Başlık Ekle</label>
+    <input type="text" name="Title" class="form-control" />
+    <br />
+    <label>Açıklama Ekle</label>
+    <input type="text" name="Description" class="form-control" />
+    <br />
+    <label>Özellik1 Ekle</label>
+    <input type="text" name="Item1" class="form-control" />
+    <br />
+    <label>Özellik2 Ekle</label>
+    <input type="text" name="Item2" class="form-control" />
+    <br />
+    <label>Özellik3 Ekle</label>
+    <input type="text" name="Item3" class="form-control" />
+    <br />
+    <label>Resim1 Ekle</label>
+    <input type="file" name="Image1" class="form-control" />
+    <br />
+    <label>Resim2 Ekle</label>
+    <input type="file" name="Image2" class="form-control" />
+    <br />
+  
+    <button href="/Admin/Index" class="btn btn-success">Ekle</button>
+</form>
+

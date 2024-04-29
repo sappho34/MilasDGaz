@@ -1,0 +1,46 @@
+﻿@using MilasDGaz.Models
+@model List<Us> 
+@{
+    ViewBag.Title = "Milas Gaz Mühendislik";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+    int count = 0;
+}
+
+<br />
+<br />
+<h3>İletişim Bilgilerimiz</h3>
+<br />
+<h6 style="color:red">Dikkat iletişim bilgileri gibi benzersiz olan şeyler bir kere eklenir daha sonra SADECE güncellenir</h6>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Adresimiz</th>
+        <th>Telefon No</th>
+        <th>Telefon No2</th>
+        <th>Telefon No3</th>
+        <th>Email</th>
+        <th>Fax</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Adress</td>
+            <td>@item.Phone</td>
+            <td>@item.Phone1</td>
+            <td>@item.Phone2</td>
+            <td>@item.Email</td>
+            <td>@item.Fax</td>
+            <td><a href="/AdminUs/DeleteUs/@item.Id" class="btn btn-danger">Sil</a></td>
+            <th><a href="/AdminUs/UpdateUs/@item.Id" class="btn btn-success">Güncelle</a></th>
+        </tr>
+    }
+
+</table>
+<a href="/AdminUs/AddUs" class="btn btn-primary">Bilgi Ekle</a>
+

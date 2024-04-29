@@ -1,0 +1,21 @@
+﻿@model MilasDGaz.Models.Service
+@{
+    ViewBag.Title = "UpdateService";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+<br />
+<h3>Galeriye Fotoğrafı Güncelle</h3>
+<br />
+<form method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+
+    <label>Resim</label>
+    <input type="file" name="ImageUrl" class="form-control" />
+    <br />
+
+    <button class="btn btn-success">Güncelle</button>
+</form>
+

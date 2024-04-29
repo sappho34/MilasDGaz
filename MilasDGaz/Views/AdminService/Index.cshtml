@@ -1,0 +1,37 @@
+﻿@using MilasDGaz.Models
+@model List<Service>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+    int count = 0;
+}
+
+<br />
+<br />
+<h3>Servis Fotoları</h3>
+<br />
+@*<h6 style="color:red">Dikkat iletişim bilgileri gibi benzersiz olan şeyler bir kere eklenir daha sonra SADECE güncellenir</h6>*@
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Başlık</th>
+        <th>Resim</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Title</td>
+            <td>@item.ImageUrl</td>
+            <td><a href="/AdminService/DeleteService/@item.Id" class="btn btn-danger">Sil</a></td>
+            <th><a href="/AdminService/UpdateService/@item.Id" class="btn btn-success">Güncelle</a></th>
+        </tr>
+    }
+
+</table>
+<a href="/AdminService/AddService" class="btn btn-primary">Fotoğraf Ekle</a>

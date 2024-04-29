@@ -1,0 +1,33 @@
+﻿@model List<MilasDGaz.Models.Team>
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="text-secondary text-uppercase">Uzman Kadromuz</h6>
+            @*<h1 class="mb-5"></h1>*@
+        </div>
+        <div class="row g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="@item.ImageUrl" alt="">
+                        </div>
+                        <div class="team-text">
+                            <div class="bg-light">
+                                <h5 class="fw-bold mb-0">@item.NameSurname</h5>
+                           
+                            </div>
+                            @*<div class="bg-primary">
+                                <a class="@item.Icon1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="@item.Icon3" href=""><i class="fab fa-whatsapp"></i></a>
+                                <a class="@item.Icon2" href=""><i class="fab fa-instagram"></i></a>
+                            </div>*@
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

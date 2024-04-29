@@ -1,0 +1,41 @@
+﻿@model List<MilasDGaz.Models.Booking>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+    int count = 0;
+}
+
+
+<br />
+<br />
+<h3>Randevu Talepleri</h3>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>AdSoyad</th>
+        <th>Telefon</th>
+        <th>Date</th>
+        <th>Konu</th>
+        <th>Mesaj</th>
+        <th>Yanıt</th>
+        <th>Yanıt Verildi Mi?</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.NameSurname</td>
+            <td>@item.Phone</td>
+            <td>@item.Date</td>
+            <td>@item.Subject</td>
+            <td>@item.Statu</td>
+            <td><a href="/AdminBooking/ChangeContact/@item.Id" class="btn btn-success">Evet</a></td>
+            <td><a href="/AdminContact/DeleteContact/@item.Id" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+
+</table>
