@@ -14,18 +14,20 @@
                             <input type="text" class="form-control border-0" name="Phone" placeholder="Telefon No" style="height: 55px;">
                         </div>
                         <div class="col-12 col-sm-6">
-                            <select class="form-select border-0" name="Subject" style="height: 55px;">
-                                <option selected>Servis Seç</option>
-                                <option value="1">Doğalgaz Keşfi</option>
-                                <option value="2">Petek Temizliği</option>
-                                <option value="3">Tesisat Reviziyon</option>
-                            </select>
+                            @*<select class="form-select border-0" name="Subject" style="height: 55px;">
+            <option selected>Servis Seç</option>
+            <option value="1">Doğalgaz Keşfi</option>
+            <option value="2">Petek Temizliği</option>
+            <option value="3">Tesisat Reviziyon</option>
+        </select>*@
+                            <input type="text" class="form-control border-0" name="Subject" placeholder="Konu" style="height: 55px;">
                         </div>
                         <div class="col-12 col-sm-6">
                             <div class="date" id="date1" name="Date" data-target-input="nearest">
-                                <input type="text"
-                                       class="form-control border-0 datetimepicker-input"
-                                       placeholder="Tarih" data-target="#date1" data-toggle="datetimepicker" style="height: 55px;">
+                                @*<input type="text"
+        class="form-control border-0 datetimepicker-input"
+        placeholder="Tarih" data-target="#date1" data-toggle="datetimepicker" style="height: 55px;">*@
+                              @Html.TextBoxFor(model => model.Date, "{0:yyyy-MM-dd}", new { @type = "date", @style = "height: 55px;", @class = "form-control border-0 datetimepicker-input" })
                             </div>
                         </div>
                         <div class="col-12">

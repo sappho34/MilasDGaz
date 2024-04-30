@@ -12,14 +12,14 @@ namespace MilasDGaz.Controllers
     public class BookingController : Controller
     {
         // GET: Booking
-        MilasDogalgazEntities db=new MilasDogalgazEntities();
+        MilasDogalgazEntities db = new MilasDogalgazEntities();
         public ActionResult Index()
         {
             ViewBag.Title = "Milas Mühendislik";
             return View();
         }
-        [HttpGet]
-        public PartialViewResult SendMessage()
+       
+        public ActionResult SendMessage()
         {
 
             return PartialView();
@@ -27,10 +27,19 @@ namespace MilasDGaz.Controllers
         [HttpPost]
         public ActionResult SendMessage(Booking book)
         {
-            book.Statu = false;
-            db.Bookings.Add(book);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                book.Statu = false;
+                db.Bookings.Add(book);
+                db.SaveChanges();
+
+                // Tam sayfa yenilemesi yaparak Index sayfasına yönlendirme
+                return RedirectToAction("Index");
+            }
+
+            // Eğer ModelState geçerli değilse, yani form doğrulaması başarısız olursa, aynı kısmi görünümü döndürün.
+            return PartialView();
         }
+       
     }
 }

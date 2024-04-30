@@ -30,10 +30,14 @@ namespace MilasDGaz.Controllers
         [HttpPost]
         public ActionResult SendMessage(Contact contact)
         {
-            contact.Status = false;
-            db.Contacts.Add(contact);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                contact.Status = false;
+                db.Contacts.Add(contact);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return PartialView();
         }
     }
 }
