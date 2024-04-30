@@ -36,5 +36,6 @@ namespace MilasDGaz.Models
         public virtual DbSet<Us> Us { get; set; }
         public virtual DbSet<Booking> Bookings { get; set; }
         public virtual DbSet<UserLogin> UserLogins { get; set; }
+        public virtual DbSet<Image> Images { get; set; }
     }
 }

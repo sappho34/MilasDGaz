@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MilasDGaz.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,16 @@ namespace MilasDGaz.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        [HttpGet]
+        public ActionResult View(int id)
+        {
+            Image imageModel = new Image();
+            using (MilasDogalgazEntities db = new MilasDogalgazEntities())
+            {
+                imageModel = db.Images.Where(x => x.Id == id).FirstOrDefault();
+            }
+            return View(imageModel);
         }
     }
 }

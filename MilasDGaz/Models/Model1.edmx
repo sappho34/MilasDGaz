@@ -17,6 +17,8 @@
           <Property Name="Item3" Type="nvarchar" MaxLength="100" />
           <Property Name="Image1" Type="nvarchar" MaxLength="150" />
           <Property Name="Image2" Type="nvarchar" MaxLength="150" />
+          <Property Name="Image3" Type="image" />
+          <Property Name="Image4" Type="image" />
         </EntityType>
         <EntityType Name="Banners">
           <Key>
@@ -62,6 +64,14 @@
           <Property Name="Item1" Type="nvarchar" MaxLength="50" />
           <Property Name="Item2" Type="nvarchar" MaxLength="50" />
           <Property Name="Item3" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Services">
           <Key>
@@ -131,6 +141,7 @@
           <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Experiences" EntityType="Self.Experiences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
@@ -213,6 +224,7 @@
           <EntitySet Name="Us" EntityType="MilasDogalgazModel.Us" />
           <EntitySet Name="Bookings" EntityType="MilasDogalgazModel.Booking" />
           <EntitySet Name="UserLogins" EntityType="MilasDogalgazModel.UserLogin" />
+          <EntitySet Name="Images" EntityType="MilasDogalgazModel.Image" />
         </EntityContainer>
         <EntityType Name="Contact">
           <Key>
@@ -238,6 +250,8 @@
           <Property Name="Item3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Image1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Image2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Image3" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Image4" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Us">
           <Key>
@@ -274,6 +288,14 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -362,6 +384,8 @@
           <EntitySetMapping Name="Abouts">
             <EntityTypeMapping TypeName="MilasDogalgazModel.About">
               <MappingFragment StoreEntitySet="Abouts">
+                <ScalarProperty Name="Image4" ColumnName="Image4" />
+                <ScalarProperty Name="Image3" ColumnName="Image3" />
                 <ScalarProperty Name="Image2" ColumnName="Image2" />
                 <ScalarProperty Name="Image1" ColumnName="Image1" />
                 <ScalarProperty Name="Item3" ColumnName="Item3" />
@@ -408,6 +432,15 @@
               <MappingFragment StoreEntitySet="UserLogin">
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="MilasDogalgazModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

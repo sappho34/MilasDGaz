@@ -12,19 +12,15 @@ namespace MilasDGaz.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     using System.Web;
 
-    public partial class Team
+    public partial class Image
     {
         public int Id { get; set; }
-        public string ImageUrl { get; set; }
-        public string NameSurname { get; set; }
-        public string Icon1 { get; set; }
-        public string Icon2 { get; set; }
-        public string Icon3 { get; set; }
-
+        public string Title { get; set; }
         [DisplayName("Upload File")]
-        
-        public HttpPostedFileBase ImageFile { get; set; }
+        public string ImagePath { get; set; }
+        public HttpPostedFileBase ImageFile  { get; set; }
     }
 }

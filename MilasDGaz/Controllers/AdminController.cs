@@ -13,7 +13,7 @@ namespace MilasDGaz.Controllers
     {
         // GET: Admin
         MilasDogalgazEntities db=new MilasDogalgazEntities();
-        [Authorize]
+     
         public ActionResult Index()
         {
             var value=db.Abouts.ToList();
@@ -37,19 +37,18 @@ namespace MilasDGaz.Controllers
         [HttpPost]
         public ActionResult AddAbout(About about)
         {
-            if(Request.Files.Count>0)
-            {
-                string fileName = Path.GetFileName(Request.Files[0].FileName);
-                string Pathh = Path.GetExtension(Request.Files[0].FileName);
-              
-                string patika = "~/Images/" + fileName + Pathh;
-                Request.Files[0].SaveAs(Server.MapPath(patika));
-                about.Image1= "~/Images/" + fileName+patika ;
-                about.Image2= "~/Images/" + fileName+patika ;
-            }
-            
+            string fileName = Path.GetFileNameWithoutExtension(about.ImageFile.FileName);
+            string extension = Path.GetExtension(about.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            about.Image1 = "~/Images/" + fileName;
+            about.Image2 = "~/Images/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+            about.ImageFile.SaveAs(fileName);
+
             db.Abouts.Add(about);
             db.SaveChanges();
+
+            ModelState.Clear();
             return RedirectToAction("Index");
         }
 
@@ -63,15 +62,13 @@ namespace MilasDGaz.Controllers
         [HttpPost]
         public ActionResult UpdateAbout(About about)
         {
-            if (Request.Files.Count > 0)
-            {
-                string fileName = Path.GetFileName(Request.Files[0].FileName);
-                string Pathh = Path.GetExtension(Request.Files[0].FileName);
-                string adress = "~/Images/" + fileName + Pathh;
-                Request.Files[0].SaveAs(Server.MapPath(adress));
-                about.Image1 = "~/Images/" + fileName + Pathh;
-                about.Image2 = "~/Images/" + fileName + Pathh;
-            }
+            string fileName = Path.GetFileNameWithoutExtension(about.ImageFile.FileName);
+            string extension = Path.GetExtension(about.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            about.Image1 = "~/Images/" + fileName;
+            about.Image2 = "~/Images/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+            about.ImageFile.SaveAs(fileName);
 
             var value = db.Abouts.Find(about.Id);
             value.Title = about.Title;

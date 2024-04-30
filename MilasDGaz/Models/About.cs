@@ -11,7 +11,9 @@ namespace MilasDGaz.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.Web;
+
     public partial class About
     {
         public int Id { get; set; }
@@ -22,5 +24,11 @@ namespace MilasDGaz.Models
         public string Item3 { get; set; }
         public string Image1 { get; set; }
         public string Image2 { get; set; }
+        public byte[] Image3 { get; set; }
+        public byte[] Image4 { get; set; }
+
+        [DisplayName("Upload File")]
+
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

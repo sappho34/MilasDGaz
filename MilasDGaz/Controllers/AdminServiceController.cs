@@ -26,17 +26,29 @@ namespace MilasDGaz.Controllers
         [HttpPost]
         public ActionResult AddService(Service service)
         {
-            if (Request.Files.Count > 0)
-            {
-                string fileName = Path.GetFileName(Request.Files[0].FileName);
-                string Pathh = Path.GetExtension(Request.Files[0].FileName);
-                string adress = "~/Images/" + fileName + Pathh;
-                Request.Files[0].SaveAs(Server.MapPath(adress));
-                service.ImageUrl = "~/Images/" + fileName + Pathh;
+            //if (Request.Files.Count > 0)
+            //{
+            //    string fileName = Path.GetFileName(Request.Files[0].FileName);
+            //    string Pathh = Path.GetExtension(Request.Files[0].FileName);
+            //    string adress = "~/Images/" + fileName + Pathh;
+            //    Request.Files[0].SaveAs(Server.MapPath(adress));
+            //    service.ImageUrl = "~/Images/" + fileName + Pathh;
 
-            }
+            //}
+            //db.Services.Add(service);
+            //db.SaveChanges();
+            //return RedirectToAction("Index");
+            string fileName = Path.GetFileNameWithoutExtension(service.ImageFile.FileName);
+            string extension = Path.GetExtension(service.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            service.ImageUrl = "~/Images/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+            service.ImageFile.SaveAs(fileName);
+
             db.Services.Add(service);
             db.SaveChanges();
+
+            ModelState.Clear();
             return RedirectToAction("Index");
         }
 
@@ -50,15 +62,22 @@ namespace MilasDGaz.Controllers
         [HttpPost]
         public ActionResult UpdateService(Service service)
         {
-            if (Request.Files.Count > 0)
-            {
-                string fileName = Path.GetFileName(Request.Files[0].FileName);
-                string Pathh = Path.GetExtension(Request.Files[0].FileName);
-                string adress = "~/Images/" + fileName + Pathh;
-                Request.Files[0].SaveAs(Server.MapPath(adress));
-                service.ImageUrl = "~/Images/" + fileName + Pathh;
+            //if (Request.Files.Count > 0)
+            //{
+            //    string fileName = Path.GetFileName(Request.Files[0].FileName);
+            //    string Pathh = Path.GetExtension(Request.Files[0].FileName);
+            //    string adress = "~/Images/" + fileName + Pathh;
+            //    Request.Files[0].SaveAs(Server.MapPath(adress));
+            //    service.ImageUrl = "~/Images/" + fileName + Pathh;
 
-            }
+            //}
+            string fileName = Path.GetFileNameWithoutExtension(service.ImageFile.FileName);
+            string extension = Path.GetExtension(service.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            service.ImageUrl = "~/Images/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+            service.ImageFile.SaveAs(fileName);
+
             var value = db.Services.Find(service.Id);
             value.ImageUrl = service.ImageUrl;
             value.Title = service.Title;
