@@ -24,3 +24,23 @@
 @Html.Action("SendMessage", "Booking")
 <!-- Booking End -->
 @Html.Action("Footer", "Default")
+@*<script>
+    $(function () {
+        $('form').submit(function (event) {
+            event.preventDefault(); // Formun normal submit işlemini durdur
+
+            $.ajax({
+                url: $(this).attr('action'),
+                type: $(this).attr('method'),
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response.success) {
+                        window.location.href = response.redirectUrl; // Yönlendirme işlemi
+                    } else {
+                        // Doğrulama hatası veya başka bir hata varsa, hata mesajlarını işleyin
+                    }
+                }
+            });
+        });
+    });
+</script>*@

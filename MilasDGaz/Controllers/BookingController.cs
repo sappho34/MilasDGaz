@@ -18,10 +18,9 @@ namespace MilasDGaz.Controllers
             ViewBag.Title = "Milas Mühendislik";
             return View();
         }
-       
-        public ActionResult SendMessage()
+        [HttpGet]
+        public PartialViewResult SendMessage()
         {
-
             return PartialView();
         }
         [HttpPost]
@@ -32,9 +31,10 @@ namespace MilasDGaz.Controllers
                 book.Statu = false;
                 db.Bookings.Add(book);
                 db.SaveChanges();
-
-                // Tam sayfa yenilemesi yaparak Index sayfasına yönlendirme
                 return RedirectToAction("Index");
+              /*  return Json(new { success = true, redirectUrl = Url.Action("Index", "About") })*/;
+                // Tam sayfa yenilemesi yaparak Index sayfasına yönlendirme
+                
             }
 
             // Eğer ModelState geçerli değilse, yani form doğrulaması başarısız olursa, aynı kısmi görünümü döndürün.

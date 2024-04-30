@@ -31,7 +31,7 @@ namespace MilasDGaz.Controllers
                 string Pathh = Path.GetExtension(Request.Files[0].FileName);
                 string adress = "~/Images/" + fileName + Pathh;
                 Request.Files[0].SaveAs(Server.MapPath(adress));
-                team.ImageUrl = "~/Images/" + fileName + Pathh;
+                team.ImageUrl = "~/Images/" + fileName ;
 
             }
             db.Teams.Add(team);
@@ -55,7 +55,7 @@ namespace MilasDGaz.Controllers
                 string Pathh = Path.GetExtension(Request.Files[0].FileName);
                 string adress = "~/Images/" + fileName + Pathh;
                 Request.Files[0].SaveAs(Server.MapPath(adress));
-                team.ImageUrl = "~/Images/" + fileName + Pathh;
+                team.ImageUrl = "~/Images/" + fileName ;
 
             }
             var value = db.Teams.Find(team.Id);

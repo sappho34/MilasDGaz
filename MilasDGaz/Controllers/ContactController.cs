@@ -17,11 +17,8 @@ namespace MilasDGaz.Controllers
             return View();
         }
       
-        public ActionResult Contact()
-        {
-            var value = db.Us.ToList();
-            return View(value);
-        }
+        
+        [HttpGet]
         public PartialViewResult SendMessage()
         {
 
@@ -32,12 +29,13 @@ namespace MilasDGaz.Controllers
         {
             if (ModelState.IsValid)
             {
-                contact.Status = false;
+                //contact.Status = false;
                 db.Contacts.Add(contact);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return PartialView();
         }
+      
     }
 }

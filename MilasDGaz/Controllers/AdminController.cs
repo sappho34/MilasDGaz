@@ -13,7 +13,7 @@ namespace MilasDGaz.Controllers
     {
         // GET: Admin
         MilasDogalgazEntities db=new MilasDogalgazEntities();
-  
+        [Authorize]
         public ActionResult Index()
         {
             var value=db.Abouts.ToList();

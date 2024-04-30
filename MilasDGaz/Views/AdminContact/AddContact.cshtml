@@ -1,14 +1,13 @@
-﻿@model MilasDGaz.Models.Booking
+﻿@model MilasDGaz.Models.Contact
 @{
-    ViewBag.Title = "AddBook";
+    ViewBag.Title = "Mesaj Ekle";
     Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
 }
 
 <br />
-<h3>Randevu Oluştur</h3>
+<h3>Mesaj Ekle</h3>
 <br />
 <form method="post">
-
     <label>İsim</label>
     @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
     <br />
@@ -16,16 +15,13 @@
     <label>Telefon</label>
     @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
     <br />
-    <label>Tarih</label>
-    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
-    <br />
+    
     <label>Konu</label>
     @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
     <br />
-    <label>Yorum</label>
-    @Html.TextAreaFor(x => x.Description, 5, 1, new { @class = "form-control" })
+    <label>Mesaj</label>
+    @Html.TextAreaFor(x => x.Message, 5, 1, new { @class = "form-control" })
     <br />
     <button class="btn btn-success">Ekle</button>
 </form>
-
 

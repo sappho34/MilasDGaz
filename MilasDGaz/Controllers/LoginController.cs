@@ -32,7 +32,7 @@ namespace MilasDGaz.Controllers
             {
                 FormsAuthentication.SetAuthCookie(value.UserName, false);
                 Session["userName"] = value.UserName;// giriş yapılca kapanan kadar tutuyor
-                return RedirectToAction("Index", "Admin");
+                return RedirectToAction("Index", "AdminBooking");
             }
             else
             {

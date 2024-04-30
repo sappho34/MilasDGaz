@@ -1,4 +1,4 @@
-﻿@model MilasDGaz.Models.Contact
+﻿
 @{
     ViewBag.Title = "Milas Gaz Mühendislik";
     Layout = "~/Views/Shared/_UILayoutPage1.cshtml";
@@ -27,7 +27,7 @@
     <div class="container">
 
         <div class="row g-4">
-            @Html.Action("Contact","Contact")
+            @Html.Action("Index","Map")
 
             @Html.Action("SendMessage", "Contact")
         </div>

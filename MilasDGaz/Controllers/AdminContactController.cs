@@ -9,21 +9,53 @@ namespace MilasDGaz.Controllers
 {
     public class AdminContactController : Controller
     {
-        // GET: AdminContact
-        MilasDogalgazEntities db=new MilasDogalgazEntities();
+      
+        // GET: AdminBooking
+        MilasDogalgazEntities db = new MilasDogalgazEntities();
         public ActionResult Index()
         {
-            var value = db.Contacts.ToList();
-            return View(value);
+            var valeu = db.Contacts.ToList();
+            return View(valeu);
         }
+        [HttpGet]
+        public ActionResult AddContact()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddContact(Contact contact)
+        {
+            db.Contacts.Add(contact);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateContact(int id)
+        {
+            var value = db.Contacts.Find(id);
+            return View(value);
+
+        }
+        [HttpPost]
+        public ActionResult UpdateContact(Contact contact)
+        {
+            var value = db.Contacts.Find(contact.Id);
+            value.NameSurname = contact.NameSurname;
+            value.Phone = contact.Phone;
+            value.Message = contact.Message;
+            value.Subject = contact.Subject;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         public ActionResult DeleteContact(int id)
         {
-            var item=db.Contacts.Find(id);
-            db.Contacts.Remove(item);
+            var value = db.Contacts.Find(id);
+            db.Contacts.Remove(value);
             db.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Index");
         }
-   
         public ActionResult ChangeContact(int id)
         {
             var item = db.Contacts.Find(id);
