@@ -116,7 +116,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Adress" Type="nvarchar(max)" />
+          <Property Name="AdressLinki" Type="nvarchar(max)" />
+          <Property Name="Adress" Type="nvarchar" MaxLength="150" />
           <Property Name="Phone" Type="nvarchar" MaxLength="15" />
           <Property Name="Phone1" Type="nvarchar" MaxLength="15" />
           <Property Name="Phone2" Type="nvarchar" MaxLength="15" />
@@ -258,7 +259,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Phone1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Phone2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
@@ -268,6 +269,7 @@
           <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Youtube" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Whatsapp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AdressLinki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Booking">
           <Key>
@@ -400,6 +402,7 @@
           <EntitySetMapping Name="Us">
             <EntityTypeMapping TypeName="MilasDogalgazModel.Us">
               <MappingFragment StoreEntitySet="Us">
+                <ScalarProperty Name="AdressLinki" ColumnName="AdressLinki" />
                 <ScalarProperty Name="Whatsapp" ColumnName="Whatsapp" />
                 <ScalarProperty Name="Youtube" ColumnName="Youtube" />
                 <ScalarProperty Name="Facebook" ColumnName="Facebook" />

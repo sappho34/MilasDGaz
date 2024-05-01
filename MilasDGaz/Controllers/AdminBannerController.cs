@@ -25,15 +25,21 @@ namespace MilasDGaz.Controllers
         [HttpPost]
         public ActionResult AddBanner(Banner banner)
         {
-            if (Request.Files.Count > 0)
-            {
-                string fileName = Path.GetFileName(Request.Files[0].FileName);
-                string Pathh = Path.GetExtension(Request.Files[0].FileName);
-                string adress = "~/Images/" + fileName + Pathh;
-                Request.Files[0].SaveAs(Server.MapPath(adress));
-                banner.ImageUrl = "~/Images/" + fileName + Pathh;
+            //if (Request.Files.Count > 0)
+            //{
+            //    string fileName = Path.GetFileName(Request.Files[0].FileName);
+            //    string Pathh = Path.GetExtension(Request.Files[0].FileName);
+            //    string adress = "~/Images/" + fileName + Pathh;
+            //    Request.Files[0].SaveAs(Server.MapPath(adress));
+            //    banner.ImageUrl = "~/Images/" + fileName + Pathh;
 
-            }
+            //}
+            string fileName = Path.GetFileNameWithoutExtension(banner.ImageFile.FileName);
+            string extension = Path.GetExtension(banner.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            banner.ImageUrl = "~/Images/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+            banner.ImageFile.SaveAs(fileName);
             db.Banners.Add(banner);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -51,16 +57,22 @@ namespace MilasDGaz.Controllers
         {
             
             var value = db.Banners.Find(banner.Id);
-            
-            if (Request.Files.Count > 0)
-            {
-                string fileName = Path.GetFileName(Request.Files[0].FileName);
-                string Pathh = Path.GetExtension(Request.Files[0].FileName);
-                string adress = "~/Images/" + fileName + Pathh;
-                Request.Files[0].SaveAs(Server.MapPath(adress));
-                banner.ImageUrl = "~/Images/" + fileName + Pathh;
 
-            }
+            //if (Request.Files.Count > 0)
+            //{
+            //    string fileName = Path.GetFileName(Request.Files[0].FileName);
+            //    string Pathh = Path.GetExtension(Request.Files[0].FileName);
+            //    string adress = "~/Images/" + fileName + Pathh;
+            //    Request.Files[0].SaveAs(Server.MapPath(adress));
+            //    banner.ImageUrl = "~/Images/" + fileName + Pathh;
+
+            //}
+            string fileName = Path.GetFileNameWithoutExtension(banner.ImageFile.FileName);
+            string extension = Path.GetExtension(banner.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            banner.ImageUrl = "~/Images/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+            banner.ImageFile.SaveAs(fileName);
             value.ImageUrl = banner.ImageUrl;
             value.Description = banner.Description;
             value.Title = banner.Title;

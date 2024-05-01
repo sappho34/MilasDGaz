@@ -191,7 +191,9 @@
     <Compile Include="Controllers\AdminBookingController.cs" />
     <Compile Include="Controllers\AdminContactController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminPasswordController.cs" />
     <Compile Include="Controllers\AdminServiceController.cs" />
+    <Compile Include="Controllers\AdminStateController.cs" />
     <Compile Include="Controllers\AdminTeamController.cs" />
     <Compile Include="Controllers\AdminTestimonialController.cs" />
     <Compile Include="Controllers\AdminUsController.cs" />
@@ -418,6 +420,12 @@
     <Content Include="Views\Image\View.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\AdminPassword\Index.cshtml" />
+    <Content Include="Views\AdminPassword\UpdateUser.cshtml" />
+    <Content Include="Views\AdminPassword\AddPass.cshtml" />
+    <Content Include="Views\AdminState\Index.cshtml" />
+    <Content Include="Views\AdminState\UpdateState.cshtml" />
+    <Content Include="Views\Default\FooterService.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

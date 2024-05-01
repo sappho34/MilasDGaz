@@ -11,7 +11,7 @@ namespace MilasDGaz.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Testimonial
     {
         public int Id { get; set; }
@@ -21,3 +21,4 @@ namespace MilasDGaz.Models
         public string Location { get; set; }
     }
 }
+

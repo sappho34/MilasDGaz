@@ -1,0 +1,23 @@
+﻿@model MilasDGaz.Models.UserLogin
+@{
+    ViewBag.Title = "UpdateUser";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<br />
+<h3>Güncelle</h3>
+<br />
+<form method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+
+    <label>Kullanıcı Adı</label>
+    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+    <br />
+
+    <label>Yorum</label>
+    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>
+
+

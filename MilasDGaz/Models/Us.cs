@@ -25,5 +25,6 @@ namespace MilasDGaz.Models
         public string Facebook { get; set; }
         public string Youtube { get; set; }
         public string Whatsapp { get; set; }
+        public string AdressLinki { get; set; }
     }
 }

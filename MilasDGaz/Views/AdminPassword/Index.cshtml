@@ -1,0 +1,35 @@
+﻿@model List<MilasDGaz.Models.UserLogin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+    int count = 0;
+}
+
+<br />
+<br />
+<h3>Randevu Talepleri</h3>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kullanıcı Adı</th>
+        <th>Password</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.UserName</td>
+            <td>@item.Password</td>
+            <td><a href="/AdminPassword/UpdateUser/@item.Id" class="btn btn-success">Evet</a></td>
+            <td><a href="/AdminPassword/DeleteUser/@item.Id" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/AdminPassword/AddPass/" class="btn btn-danger">Ekle</a>

@@ -21,6 +21,6 @@ namespace MilasDGaz.Models
         public string Title { get; set; }
         [DisplayName("Upload File")]
         public string ImagePath { get; set; }
-        public HttpPostedFileBase ImageFile  { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

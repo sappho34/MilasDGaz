@@ -1,0 +1,22 @@
+﻿@model MilasDGaz.Models.UserLogin
+@{
+    ViewBag.Title = "AddPass";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<br />
+<h3>Kullanıcı Ekle</h3>
+<br />
+<form method="post" enctype="multipart/form-data">
+
+
+    <label>Kullanıcı Adı</label>
+    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+    <br />
+
+   
+    <label>Yorum</label>
+    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Ekle</button>
+</form>

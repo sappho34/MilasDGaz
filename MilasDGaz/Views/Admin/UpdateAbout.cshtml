@@ -22,10 +22,20 @@
     <input type="text" name="Item3" value="@Model.Item3" class="form-control" />
     <br />
     <label>Fotograf1</label>
-    <input type="file" name="Image1" value="@Model.Image1" class="form-control" />
+    <div class="col-md-10">
+        @*@Html.EditorFor(model => model.Image1, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Image1, "", new { @class = "text-danger" })*@
+        <input type="file" name="ImageFile"  />
+       
+    </div>
     <br />
     <label>Fotograf2</label>
-    <input type="file" name="Image2" value="@Model.Image2" class="form-control" />
+    <div class="col-md-10">
+        @*@Html.EditorFor(model => model.Image2, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Image2, "", new { @class = "text-danger" })*@
+        <input type="file" name="ImageFile" />
+       
+    </div>
     <br />
    
  

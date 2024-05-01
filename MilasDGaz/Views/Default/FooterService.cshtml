@@ -1,0 +1,15 @@
+﻿@model  List<MilasDGaz.Models.Service>
+@{
+    Layout = null;
+}
+
+
+<div class="col-lg-3 col-md-6">
+    <h4 class="text-light mb-4">Servisler</h4>
+    @foreach (var item in Model)
+    {
+        <a class="btn btn-link" href="">@item.Title</a>
+    }
+
+
+</div>

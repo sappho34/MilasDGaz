@@ -24,7 +24,7 @@ namespace MilasDGaz.Models
         public string Icon3 { get; set; }
 
         [DisplayName("Upload File")]
-        
+
         public HttpPostedFileBase ImageFile { get; set; }
     }
 }

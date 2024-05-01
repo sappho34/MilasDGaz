@@ -70,6 +70,8 @@ namespace MilasDGaz.Controllers
             fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
             about.ImageFile.SaveAs(fileName);
 
+         
+
             var value = db.Abouts.Find(about.Id);
             value.Title = about.Title;
             value.Description = about.Description;

@@ -19,17 +19,17 @@ namespace MilasDGaz.Controllers
         [HttpPost]
         public ActionResult Add(Image imageModel)
         {
-            string fileName = Path.GetFileNameWithoutExtension(imageModel.ImageFile.FileName);
-            string extension = Path.GetExtension(imageModel.ImageFile.FileName);
-            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-            imageModel.ImagePath = "~/Images/" + fileName;
-            fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
-            imageModel.ImageFile.SaveAs(fileName);
-            using (MilasDogalgazEntities db=new MilasDogalgazEntities())
-            {
-                db.Images.Add(imageModel);
-                db.SaveChanges();
-            }
+            //string fileName = Path.GetFileNameWithoutExtension(imageModel.ImageFile.FileName);
+            //string extension = Path.GetExtension(imageModel.ImageFile.FileName);
+            //fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            //imageModel.ImagePath = "~/Images/" + fileName;
+            //fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+            //imageModel.ImageFile.SaveAs(fileName);
+            //using (MilasDogalgazEntities db=new MilasDogalgazEntities())
+            //{
+            //    db.Images.Add(imageModel);
+            //    db.SaveChanges();
+            //}
             ModelState.Clear();
             return View();
         }

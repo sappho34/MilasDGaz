@@ -1,0 +1,34 @@
+﻿@model List<MilasDGaz.Models.State>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+    int count = 0;
+}
+
+<br />
+<br />
+<h3>Yapılan İşlerin İstatistik Bölümü</h3>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Başlık</th>
+        <th>Değer</th>
+        <th>Güncelle</th>
+        
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Title</td>
+            <td>@item.Value</td>
+            <td><a href="/AdminState/UpdateState/@item.Id" class="btn btn-success">Güncelle</a></td>
+          
+        </tr>
+    }
+
+</table>
+

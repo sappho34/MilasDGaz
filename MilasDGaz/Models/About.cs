@@ -12,6 +12,7 @@ namespace MilasDGaz.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Web;
 
     public partial class About
@@ -22,13 +23,17 @@ namespace MilasDGaz.Models
         public string Item1 { get; set; }
         public string Item2 { get; set; }
         public string Item3 { get; set; }
+
+        [DisplayName("Upload Image1")]
         public string Image1 { get; set; }
+
+        [DisplayName("Upload Image2")]
         public string Image2 { get; set; }
         public byte[] Image3 { get; set; }
         public byte[] Image4 { get; set; }
-
-        [DisplayName("Upload File")]
-
+        [NotMapped]
+        public HttpPostedFileBase ImageFile2 { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
     }
 }
+

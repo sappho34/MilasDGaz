@@ -42,8 +42,8 @@ namespace MilasDGaz.Controllers
             team.ImageUrl = "~/Images/" + fileName;
             fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
             team.ImageFile.SaveAs(fileName);
-            
-             db.Teams.Add(team);
+
+            db.Teams.Add(team);
              db.SaveChanges();
             
             ModelState.Clear();

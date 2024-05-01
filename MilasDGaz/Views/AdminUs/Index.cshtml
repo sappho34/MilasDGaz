@@ -10,15 +10,18 @@
 <br />
 <h3>İletişim Bilgilerimiz</h3>
 <br />
-<h6 style="color:red">Dikkat iletişim bilgileri gibi benzersiz olan şeyler bir kere eklenir daha sonra SADECE güncellenir</h6>
+<h6 style="color:red">Dikkat iletişim bilgileri gibi benzersiz olan şeyler bir kere eklenir daha sonra SADECE güncellenir.YANA Kaydırınız</h6>
 
 <table class="table table-bordered">
     <tr>
         <th>ID</th>
         <th>Adresimiz</th>
+        <th>Adres Linki</th>
         <th>Telefon No</th>
         <th>Telefon No2</th>
-        <th>Telefon No3</th>
+        <th>Instagram</th>
+        <th>Facebook</th>
+        <th>Youtube</th>
         <th>Email</th>
         <th>Fax</th>
         <th>Sil</th>
@@ -26,14 +29,17 @@
 
     </tr>
     @foreach (var item in Model)
-    {
+    { 
         count++;
         <tr>
             <td>@count</td>
             <td>@item.Adress</td>
+            <td>@item.AdressLinki</td>
             <td>@item.Phone</td>
             <td>@item.Phone1</td>
-            <td>@item.Phone2</td>
+            <td>@item.Instagram</td>
+            <td>@item.Facebook</td>
+            <td>@item.Youtube</td>
             <td>@item.Email</td>
             <td>@item.Fax</td>
             <td><a href="/AdminUs/DeleteUs/@item.Id" class="btn btn-danger">Sil</a></td>

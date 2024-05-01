@@ -47,6 +47,7 @@ namespace MilasDGaz.Controllers
             value.Phone=us.Phone;
             value.Phone2= us.Phone2;
             value.Email=us.Email;
+            
             value.Fax=us.Fax;
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -75,6 +75,24 @@ namespace MilasDGaz.Controllers
             return PartialView(value);
 
         }
+        public PartialViewResult FooterService()
+        {
+            var value = db.Services.ToList();
+            return PartialView(value);
+
+        }
+        public PartialViewResult FooterSocial()
+        {
+            var value = db.Services.ToList();
+            return PartialView(value);
+
+        }
+        public PartialViewResult NavSocial()
+        {
+            var value = db.Services.ToList();
+            return PartialView(value);
+
+        }
         //public PartialViewResult Contact()
         //{
         //    ViewBag.Title = "Milas Gaz Mühendislik";
