@@ -11,6 +11,7 @@ namespace MilasDGaz.Controllers
     {
         // GET: AdminBooking
         MilasDogalgazEntities db = new MilasDogalgazEntities();
+        [Authorize]
         public ActionResult Index()
         {
             var valeu = db.Bookings.ToList();
