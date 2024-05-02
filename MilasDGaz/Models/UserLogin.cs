@@ -11,11 +11,17 @@ namespace MilasDGaz.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class UserLogin
     {
         public int Id { get; set; }
+
+        [Display(Name="UserName")]
         public string UserName { get; set; }
+
+        [Display(Name = "Password")]
         public string Password { get; set; }
     }
 }

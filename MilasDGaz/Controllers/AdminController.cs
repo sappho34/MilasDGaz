@@ -69,9 +69,6 @@ namespace MilasDGaz.Controllers
             about.Image2 = "~/Images/" + fileName;
             fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
             about.ImageFile.SaveAs(fileName);
-
-         
-
             var value = db.Abouts.Find(about.Id);
             value.Title = about.Title;
             value.Description = about.Description;
@@ -80,7 +77,8 @@ namespace MilasDGaz.Controllers
             value.Item3 = about.Item3;
             value.Image1= about.Image1;
             value.Image2= about.Image2;
-           
+            value.ImageFile = about.ImageFile;
+            value.ImageFile2 = about.ImageFile2;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

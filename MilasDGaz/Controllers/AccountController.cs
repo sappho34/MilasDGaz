@@ -24,19 +24,37 @@ namespace MilasDGaz.Controllers
         public ActionResult Index(UserLogin login)
         {
             MilasDogalgazEntities db = new MilasDogalgazEntities();
-            var adminUserInfo = db.UserLogins.FirstOrDefault(x => x.UserName == login.UserName && 
+            var adminUserInfo = db.UserLogins.FirstOrDefault(x => x.UserName == login.UserName &&
             x.Password == login.Password);
             if (adminUserInfo != null)
             {
                 FormsAuthentication.SetAuthCookie(adminUserInfo.UserName, false);
-                Session["UserName"]=adminUserInfo.UserName;
+                Session["UserName"] = adminUserInfo.UserName.ToString();
                 return RedirectToAction("Index", "AdminBooking");
             }
             else
             {
-                return RedirectToAction("Index","Account");
+                return RedirectToAction("Index", "Account");
             }
             return View();
+            //if (ModelState.IsValid)
+            //{
+            //    var r = getUser(login.UserName);
+            //    if (r == null)
+            //    {
+            //        TempData["msg"] = "Ulaşılamdı";
+            //        return View();
+            //    }
+            //    else
+            //    {
+            //        if(r.UserName==login.UserName && r.Password == login.Password)
+            //        {
+            //            Session["userId"]=r.UserName;
+            //            FormsAuthentication.SetAuthCookie(r.Id, false);
+            //            return RedirectToAction("Index", "AdminBooking");
+            //        }
+            //    }
+            //}
         }
     }
 }
