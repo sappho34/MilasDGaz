@@ -11,12 +11,14 @@ namespace MilasDGaz.Controllers
     public class AdminTeamController : Controller
     {
         // GET: AdminTeam
-        MilasDogalgazEntities db=new MilasDogalgazEntities();
+        MilasDogalgazEntities db = new MilasDogalgazEntities();
+        [Authorize]
         public ActionResult Index()
         {
             var valeu = db.Teams.ToList();
             return View(valeu);
         }
+        [Authorize]
         [HttpGet]
         public ActionResult AddTeam()
         {
@@ -44,12 +46,12 @@ namespace MilasDGaz.Controllers
             team.ImageFile.SaveAs(fileName);
 
             db.Teams.Add(team);
-             db.SaveChanges();
-            
+            db.SaveChanges();
+
             ModelState.Clear();
             return RedirectToAction("Index");
         }
-
+        [Authorize]
         [HttpGet]
         public ActionResult UpdateTeam(int id)
         {
@@ -77,11 +79,11 @@ namespace MilasDGaz.Controllers
             team.ImageFile.SaveAs(fileName);
 
             var value = db.Teams.Find(team.Id);
-            value.Icon1= team.Icon1;
+            value.Icon1 = team.Icon1;
             value.NameSurname = team.NameSurname;
-            value.Icon2= team.Icon2;
-            value.Icon3= team.Icon3;    
-            value.ImageUrl=team.ImageUrl;
+            value.Icon2 = team.Icon2;
+            value.Icon3 = team.Icon3;
+            value.ImageUrl = team.ImageUrl;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

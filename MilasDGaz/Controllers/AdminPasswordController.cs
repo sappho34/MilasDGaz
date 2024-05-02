@@ -11,12 +11,13 @@ namespace MilasDGaz.Controllers
     {
         // GET: AdminPassword
         MilasDogalgazEntities db = new MilasDogalgazEntities();
-       
+        [Authorize]
         public ActionResult Index()
         {
             var valeu = db.UserLogins.ToList();
             return View(valeu);
         }
+        [Authorize]
         [HttpGet]
         public ActionResult AddPass()
         {
@@ -29,7 +30,7 @@ namespace MilasDGaz.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [Authorize]
         [HttpGet]
         public ActionResult UpdateUser(int id)
         {

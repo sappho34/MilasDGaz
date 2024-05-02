@@ -12,11 +12,13 @@ namespace MilasDGaz.Controllers
       
         // GET: AdminBooking
         MilasDogalgazEntities db = new MilasDogalgazEntities();
+        [Authorize]
         public ActionResult Index()
         {
             var valeu = db.Contacts.ToList();
             return View(valeu);
         }
+        [Authorize]
         [HttpGet]
         public ActionResult AddContact()
         {
@@ -29,7 +31,7 @@ namespace MilasDGaz.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [Authorize]
         [HttpGet]
         public ActionResult UpdateContact(int id)
         {
@@ -48,7 +50,7 @@ namespace MilasDGaz.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+   
         public ActionResult DeleteContact(int id)
         {
             var value = db.Contacts.Find(id);

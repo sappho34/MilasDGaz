@@ -17,8 +17,6 @@
           <Property Name="Item3" Type="nvarchar" MaxLength="100" />
           <Property Name="Image1" Type="nvarchar" MaxLength="150" />
           <Property Name="Image2" Type="nvarchar" MaxLength="150" />
-          <Property Name="Image3" Type="image" />
-          <Property Name="Image4" Type="image" />
         </EntityType>
         <EntityType Name="Banners">
           <Key>
@@ -251,8 +249,6 @@
           <Property Name="Item3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Image1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Image2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Image3" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Image4" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Us">
           <Key>
@@ -386,8 +382,6 @@
           <EntitySetMapping Name="Abouts">
             <EntityTypeMapping TypeName="MilasDogalgazModel.About">
               <MappingFragment StoreEntitySet="Abouts">
-                <ScalarProperty Name="Image4" ColumnName="Image4" />
-                <ScalarProperty Name="Image3" ColumnName="Image3" />
                 <ScalarProperty Name="Image2" ColumnName="Image2" />
                 <ScalarProperty Name="Image1" ColumnName="Image1" />
                 <ScalarProperty Name="Item3" ColumnName="Item3" />

@@ -10,7 +10,8 @@ namespace MilasDGaz.Controllers
     public class AboutController : Controller
     {
         // GET: About
-        MilasDogalgazEntities db=new MilasDogalgazEntities();   
+        MilasDogalgazEntities db=new MilasDogalgazEntities();
+     
         public ActionResult Index()
         {
             ViewBag.Title = "Milas Mühendislik";

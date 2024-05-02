@@ -36,8 +36,8 @@ namespace MilasDGaz.Controllers
         [HttpGet]
         public ActionResult View(int id)
         {
-            Image imageModel=new Image();
-            using (MilasDogalgazEntities db=new MilasDogalgazEntities())
+            Image imageModel = new Image();
+            using (MilasDogalgazEntities db = new MilasDogalgazEntities())
             {
                 imageModel = db.Images.Where(x => x.Id == id).FirstOrDefault();
             }
@@ -45,7 +45,7 @@ namespace MilasDGaz.Controllers
         }
         public ActionResult Index()
         {
-            using(MilasDogalgazEntities db=new MilasDogalgazEntities())
+            using (MilasDogalgazEntities db = new MilasDogalgazEntities())
             {
                 return View(db.Images.ToList());
             }

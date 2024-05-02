@@ -6,20 +6,23 @@ using System.Web.Mvc;
 using System.Data.SqlClient;
 using MilasDGaz.Models;
 using System.IO;
+using MilasDGaz.ViewModels;
+using System.Threading.Tasks;
+using System.Web.WebPages;
 
 namespace MilasDGaz.Controllers
 {
     public class AdminController : Controller
     {
         // GET: Admin
-        MilasDogalgazEntities db=new MilasDogalgazEntities();
-     
+        MilasDogalgazEntities db = new MilasDogalgazEntities();
+        [Authorize]
         public ActionResult Index()
         {
-            var value=db.Abouts.ToList();
+            var value = db.Abouts.ToList();
             return View(value);
         }
-        
+
         public PartialViewResult AdminLayoutSideBar()
         {
             return PartialView();
@@ -28,7 +31,7 @@ namespace MilasDGaz.Controllers
         {
             return PartialView();
         }
-      
+        [Authorize]
         [HttpGet]
         public ActionResult AddAbout()
         {
@@ -51,13 +54,13 @@ namespace MilasDGaz.Controllers
             ModelState.Clear();
             return RedirectToAction("Index");
         }
-
+        [Authorize]
         [HttpGet]
-        public ActionResult UpdateAbout(int id) 
+        public ActionResult UpdateAbout(int id)
         {
-            var value=db.Abouts.Find(id);
+            var value = db.Abouts.Find(id);
             return View(value);
-            
+
         }
         [HttpPost]
         public ActionResult UpdateAbout(About about)
@@ -75,8 +78,8 @@ namespace MilasDGaz.Controllers
             value.Item1 = about.Item1;
             value.Item2 = about.Item2;
             value.Item3 = about.Item3;
-            value.Image1= about.Image1;
-            value.Image2= about.Image2;
+            value.Image1 = about.Image1;
+            value.Image2 = about.Image2;
             value.ImageFile = about.ImageFile;
             value.ImageFile2 = about.ImageFile2;
             db.SaveChanges();
@@ -85,7 +88,7 @@ namespace MilasDGaz.Controllers
 
         public ActionResult DeleteAbout(int id)
         {
-            var value= db.Abouts.Find(id);
+            var value = db.Abouts.Find(id);
             db.Abouts.Remove(value);
             db.SaveChanges();
             return RedirectToAction("Index");

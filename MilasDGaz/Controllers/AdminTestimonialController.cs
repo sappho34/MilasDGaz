@@ -12,11 +12,13 @@ namespace MilasDGaz.Controllers
     {
         // GET: AdminTestimonial
         MilasDogalgazEntities db=new MilasDogalgazEntities();
+        [Authorize]
         public ActionResult Index()
         {
             var valeu=db.Testimonials.ToList();
             return View(valeu);
         }
+        [Authorize]
         [HttpGet]
         public ActionResult AddRef()
         {
@@ -38,7 +40,7 @@ namespace MilasDGaz.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [Authorize]
         [HttpGet]
         public ActionResult UpdateRef(int id)
         {

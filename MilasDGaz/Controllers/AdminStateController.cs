@@ -11,7 +11,7 @@ namespace MilasDGaz.Controllers
     {
         // GET: AdminState
         MilasDogalgazEntities db = new MilasDogalgazEntities();
-
+        [Authorize]
         public ActionResult Index()
         {
             var valeu = db.States.ToList();
@@ -28,8 +28,8 @@ namespace MilasDGaz.Controllers
         //    db.States.Add(state);
         //    db.SaveChanges();
         //    return RedirectToAction("Index");
-        //}
-
+        //
+        [Authorize]
         [HttpGet]
         public ActionResult UpdateState(int id)
         {
@@ -37,6 +37,7 @@ namespace MilasDGaz.Controllers
             return View(value);
 
         }
+      
         [HttpPost]
         public ActionResult UpdateState(State state)
         {

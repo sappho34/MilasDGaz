@@ -1,4 +1,5 @@
-﻿using MilasDGaz.Models;
+﻿
+using MilasDGaz.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,13 @@ namespace MilasDGaz.Controllers
     public class AccountController : Controller
     {
         // GET: Acount
-        [AllowAnonymous]
+      
         [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
-      
+        [HttpPost]
         public ActionResult Index(UserLogin login)
         {
             MilasDogalgazEntities db = new MilasDogalgazEntities();
@@ -34,27 +35,10 @@ namespace MilasDGaz.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Account");
+                return View();
             }
-            return View();
-            //if (ModelState.IsValid)
-            //{
-            //    var r = getUser(login.UserName);
-            //    if (r == null)
-            //    {
-            //        TempData["msg"] = "Ulaşılamdı";
-            //        return View();
-            //    }
-            //    else
-            //    {
-            //        if(r.UserName==login.UserName && r.Password == login.Password)
-            //        {
-            //            Session["userId"]=r.UserName;
-            //            FormsAuthentication.SetAuthCookie(r.Id, false);
-            //            return RedirectToAction("Index", "AdminBooking");
-            //        }
-            //    }
-            //}
+           
+         
         }
     }
 }

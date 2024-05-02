@@ -36,4 +36,3 @@ namespace MilasDGaz.Models
         public HttpPostedFileBase ImageFile { get; set; }
     }
 }
-

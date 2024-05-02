@@ -15,7 +15,7 @@ namespace MilasDGaz.Controllers
         MilasDogalgazEntities db = new MilasDogalgazEntities();
         public ActionResult Index()
         {
-            ViewBag.Title = "Milas Mühendislik";
+            ViewBag.Title = "Milas Gaz Mühendislik";
             return View();
         }
         [HttpGet]

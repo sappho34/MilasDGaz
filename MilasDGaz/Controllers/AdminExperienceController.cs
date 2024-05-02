@@ -12,11 +12,13 @@ namespace MilasDGaz.Controllers
     {
         // GET: Experience
         MilasDogalgazEntities db=new MilasDogalgazEntities();
+        [Authorize]
         public ActionResult Index()
         {
             var valeu = db.Experiences.ToList();
             return View(valeu);
         }
+        [Authorize]
         [HttpGet]
         public ActionResult AddExp()
         {
@@ -29,7 +31,7 @@ namespace MilasDGaz.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [Authorize]
         [HttpGet]
         public ActionResult UpdateExp(int id)
         {

@@ -13,11 +13,13 @@ namespace MilasDGaz.Controllers
     {
         // GET: AdminService
         MilasDogalgazEntities db = new MilasDogalgazEntities();
+        [Authorize]
         public ActionResult Index()
         {
             var valeu = db.Services.ToList();
             return View(valeu);
         }
+        [Authorize]
         [HttpGet]
         public ActionResult AddService()
         {
@@ -51,7 +53,7 @@ namespace MilasDGaz.Controllers
             ModelState.Clear();
             return RedirectToAction("Index");
         }
-
+        [Authorize]
         [HttpGet]
         public ActionResult UpdateService(int id)
         {

@@ -16,6 +16,7 @@ namespace MilasDGaz.Models
 
     public partial class Service
     {
+
         public int Id { get; set; }
         public string Title { get; set; }
         public string ImageUrl { get; set; }
@@ -25,4 +26,3 @@ namespace MilasDGaz.Models
         public HttpPostedFileBase ImageFile { get; set; }
     }
 }
-

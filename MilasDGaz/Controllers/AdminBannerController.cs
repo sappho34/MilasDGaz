@@ -12,11 +12,13 @@ namespace MilasDGaz.Controllers
     {
         // GET: AdminBanner
         MilasDogalgazEntities db = new MilasDogalgazEntities();
+        [Authorize]
         public ActionResult Index()
         {
             var valeu = db.Banners.ToList();
             return View(valeu);
         }
+        [Authorize]
         [HttpGet]
         public ActionResult AddBanner()
         {
@@ -44,7 +46,7 @@ namespace MilasDGaz.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [Authorize]
         [HttpGet]
         public ActionResult UpdateBanner(int id)
         {

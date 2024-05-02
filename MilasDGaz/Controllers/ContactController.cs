@@ -29,7 +29,7 @@ namespace MilasDGaz.Controllers
         {
             if (ModelState.IsValid)
             {
-                //contact.Status = false;
+                contact.Status = false;
                 db.Contacts.Add(contact);
                 db.SaveChanges();
                 return RedirectToAction("Index");
